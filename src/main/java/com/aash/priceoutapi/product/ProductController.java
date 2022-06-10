@@ -29,11 +29,11 @@ public class ProductController {
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   public Map<String, Iterable<Product>> list() {
-    Iterable<Product> someResources = someResourceService.list();
-    return createHashPlural(someResources);
+    Iterable<Product> products = productService.list();
+    return createHashPlural(products);
   }
 
-  private Map<String, Iterable<Product>> createHashPlural(Iterable<Product> someResources) {
+  private Map<String, Iterable<Product>> createHashPlural(Iterable<Product> products) {
     Map<String, Iterable<Product>> response = new HashMap<String, Iterable<Product>>();
     response.put("products", products);
 
